@@ -29,15 +29,19 @@ def palettes():
         lower_lash_line2 = random.choices(jaclyn_mattes)
         shades_result["text"] = "Shades: Transition color: " + str(transition2) + ", Crease color: " + str(crease2) + ", Outer-V color: " + str(outer_v2) + ", Lid Color: " + str(lid2) + ", Lower Lash Line Color: " + str(lower_lash_line2)
 
+    palette_button["state"] = "disabled"
+
 def type():
     types = ["Halo", "Cut Crease", "Half Cut Crease", "Smokey Eye"]
     type = random.choices(types)
     type_result["text"] = "Eyeshadow type: "+ str(type)
+    type_button["state"] = "disabled"
 
 def liner():
     eyeliner = ["Winged", "Smudged", "Fox Eye"]
     style = random.choices(eyeliner)
     liner_result["text"] = "Eyeliner style: " + str(style)
+    liner_button["state"] = "disabled"
 
 palette_button = tkinter.Button(window, text="Palette", command=palettes)
 palette_button.pack()
