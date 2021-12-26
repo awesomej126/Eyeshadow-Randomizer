@@ -15,7 +15,7 @@ def colors():
     shade = random.choice(shades)
     shade_result["text"] = "{0}".format(shade)
     if shade == "Pastels":
-        pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel teal", "Pastel Blue", "Pastel Purple", "White"]
+        pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel Teal", "Pastel Blue", "Pastel Purple", "White"]
         pastel1 = random.choice(pastels)
         pastel2 = random.choice(pastels)
         pastel3 = random.choice(pastels)
