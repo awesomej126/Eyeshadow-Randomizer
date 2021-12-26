@@ -10,7 +10,7 @@ window.geometry("800x300")
 # Chooses your palette and colors
 def palettes():
     reset_button["state"] = "normal"
-    palettes = ["James Charles Palette", "Jaclyn Hill Palette"]
+    palettes = ["James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette"]
     palette = random.choice(palettes)
     palette_result["text"] = "Eyeshadow palette: {0}".format(palette)
 
@@ -32,6 +32,15 @@ def palettes():
         lid2 = random.choice(jaclyn_shimmers)
         lower_lash_line2 = random.choice(jaclyn_mattes)
         shades_result["text"] = "Transition color: {0}, Crease color: {1}, Outer-V color: {2}, Lid Color: {3}, Lower Lash Line Color: {4}".format(transition2, crease2, outer_v2, lid2, lower_lash_line2)
+    elif palette == "Mickey & Friends Palette":
+        mickey_mattes = ["Head Out", "Life's Short", "So Fearless", "Big Dreamer", "Play by Ear", "Stop & Stare", "Big Bows", "Coy Toy", "On the Dot", "Bat Those Lashes", "Awe-Dascious", "Awe Goody", "Out Loud", "Very Vixen", "Thumbs Up", "Stun & Games", "Street Beats", "Major Edge", "Secret Weapon", "Original Artist", "Push It", "Max Power", "Wild One", "Instigator", "Total Rebel"]
+        mickey_shimmers = ["Own It", "Creative Collision", "Made Ya Look", "Extra Sparkle", "Staring Contest", "Super Sassy", "Talk Flirty", "Iconic Vibes", "Troublemaker", "Into Mischief"]
+        transition3 = random.choice(mickey_mattes)
+        crease3 = random.choice(mickey_mattes)
+        outer_v3 = random.choice(mickey_mattes)
+        lid3 = random.choice(mickey_shimmers)
+        lower_lash_line3 = random.choice(mickey_mattes)
+        shades_result["text"] = "Transition color: {0}, Crease color: {1}, Outer-V color: {2}, Lid Color: {3}, Lower Lash Line Color: {4}".format(transition3, crease3, outer_v3, lid3, lower_lash_line3)
     palette_button["state"] = "disabled"
 
 # Chooses the style of eyeshadow
