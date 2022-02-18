@@ -8,11 +8,11 @@ window.title("Eyeshadow Randomizer")
 window.geometry("1000x500")
 
 # Palette Images
-jh_image = ImageTk.PhotoImage(Image.open('jhpalette.jpg').resize((350, 200)))
+jh_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jhpalette.jpg').resize((350, 200)))
 
-jc_image = ImageTk.PhotoImage(Image.open('jcpalette.jpg').resize((250, 200)))
+jc_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jcpalette.jpg').resize((250, 200)))
 
-mickey_image = ImageTk.PhotoImage(Image.open('mickeymouse.jpg').resize((250, 200)))
+mickey_image = ImageTk.PhotoImage(Image.open('Eyeshadow/mickeymouse.jpg').resize((250, 200)))
 
 # Functions
 # Chooses your palette and colors
