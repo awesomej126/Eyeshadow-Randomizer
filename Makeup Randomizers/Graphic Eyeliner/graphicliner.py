@@ -8,9 +8,9 @@ window.title("Graphic Eyeliner Randomizer")
 window.geometry("800x500")
 
 # Palette Images
-neon_image = ImageTk.PhotoImage(Image.open('neon.jpg').resize((200, 200)))
+neon_image = ImageTk.PhotoImage(Image.open('Eyeliner/neon.jpg').resize((200, 200)))
 
-pastel_image = ImageTk.PhotoImage(Image.open('pastel.jpg').resize((200, 200)))
+pastel_image = ImageTk.PhotoImage(Image.open('Eyeliner/pastel.jpg').resize((200, 200)))
 
 # Functions
 # Chooses palette and colors
@@ -39,7 +39,7 @@ def colors():
 def type():
     reset_button["state"] = "normal"
     type_button["state"] = "disabled"
-    types = ["Floating Crease Liner", "Double Liner", "Dotted Liner", "Creative Liner"]
+    types = ["Floating Crease Liner", "Double Liner", "Dotted Liner", "Flames", "Winged", "Whatever The Fuck You Want"]
     type = random.choice(types)
     type_result["text"] = "".join(type)
 
