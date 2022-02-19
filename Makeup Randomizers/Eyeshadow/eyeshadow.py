@@ -9,9 +9,7 @@ window.geometry("1000x500")
 
 # Palette Images
 jh_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jhpalette.jpg').resize((350, 200)))
-
 jc_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jcpalette.jpg').resize((250, 200)))
-
 mickey_image = ImageTk.PhotoImage(Image.open('Eyeshadow/mickeymouse.jpg').resize((250, 200)))
 
 # Functions
@@ -21,12 +19,16 @@ def palettes():
     palettes = ["James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette"]
     palette = random.choice(palettes)
     palette_result["text"] = "Eyeshadow palette: {0}".format(palette)
+    james_mattes = ["Canvas", "518", "Rusted", "Tea", "Punch Me", "Mary", "You're Kidding", "Boutique", "Benny", "Flashback", "Tune", "Code James", "10% Off", "No Beans", "Spooky", "Bee", "Playground", "Brother", "Love That", "Pinkity Drinkity", "Social Blade", "Daddy", "Cola", "Escape", "Single", "Skip"]
+    james_shimmers = ["Ringlight", "So Good", "Halloween", "Wig", "Sister", "Literally", "Shook", "Face", "Guac", "Hello", "Artistry", "Cape Cod", "A Capella"]
+    jaclyn_mattes = ["Silk Creme", "M.F.E.O.", "Creamsicle", "Butter", "Pooter", "Pukey", "Hunts", "Roxanne", "Jacz", "Chip", "Mocha", "Jada", "Enchanted", "Central Park", "Soda Pop", "Abyss"]
+    jaclyn_shimmers = ["Enlight", "Beam", "Faint", "Sissy", "Little Lady", "Firework", "Queen", "Obsessed", "S.B.N.", "Hillster", "Buns", "Cranapple", "Royalty", "Twerk", "Hustle", "Meeks", "24/7", "Pool Party", "Diva"]
+    mickey_mattes = ["Head Out", "Life's Short", "So Fearless", "Big Dreamer", "Play by Ear", "Stop & Stare", "Big Bows", "Coy Toy", "On the Dot", "Bat Those Lashes", "Awe-Dascious", "Awe Goody", "Out Loud", "Very Vixen", "Thumbs Up", "Stun & Games", "Street Beats", "Major Edge", "Secret Weapon", "Original Artist", "Push It", "Max Power", "Wild One", "Instigator", "Total Rebel"]
+    mickey_shimmers = ["Own It", "Creative Collision", "Made Ya Look", "Extra Sparkle", "Staring Contest", "Super Sassy", "Talk Flirty", "Iconic Vibes", "Troublemaker", "Into Mischief"]
     mnum = random.randint(2, 4)
     snum = random.randint(0, 2)
     if palette == "James Charles Palette":
         palette_pic["image"] = jc_image
-        james_mattes = ["Canvas", "518", "Rusted", "Tea", "Punch Me", "Mary", "You're Kidding", "Boutique", "Benny", "Flashback", "Tune", "Code James", "10% Off", "No Beans", "Spooky", "Bee", "Playground", "Brother", "Love That", "Pinkity Drinkity", "Social Blade", "Daddy", "Cola", "Escape", "Single", "Skip"]
-        james_shimmers = ["Ringlight", "So Good", "Halloween", "Wig", "Sister", "Literally", "Shook", "Face", "Guac", "Hello", "Artistry", "Cape Cod", "A Capella"]
         mjames = random.choices(james_mattes, k=mnum)
         sjames = random.choices(james_shimmers, k=snum)
         if snum == 0:
@@ -34,8 +36,6 @@ def palettes():
         shades_result["text"] = "Matte Shades: {0}, Shimmer Shades: {1}".format(mjames, sjames)
     elif palette == "Jaclyn Hill Palette":
         palette_pic["image"] = jh_image
-        jaclyn_mattes = ["Silk Creme", "M.F.E.O.", "Creamsicle", "Butter", "Pooter", "Pukey", "Hunts", "Roxanne", "Jacz", "Chip", "Mocha", "Jada", "Enchanted", "Central Park", "Soda Pop", "Abyss"]
-        jaclyn_shimmers = ["Enlight", "Beam", "Faint", "Sissy", "Little Lady", "Firework", "Queen", "Obsessed", "S.B.N.", "Hillster", "Buns", "Cranapple", "Royalty", "Twerk", "Hustle", "Meeks", "24/7", "Pool Party", "Diva"]
         mjaclyn = random.choices(jaclyn_mattes, k=mnum)
         sjaclyn = random.choices(jaclyn_shimmers, k=snum)
         if snum == 0:
@@ -43,8 +43,6 @@ def palettes():
         shades_result["text"] = "Matte Shades: {0}, Shimmer Shades: {1}".format(mjaclyn, sjaclyn)
     elif palette == "Mickey & Friends Palette":
         palette_pic["image"] = mickey_image
-        mickey_mattes = ["Head Out", "Life's Short", "So Fearless", "Big Dreamer", "Play by Ear", "Stop & Stare", "Big Bows", "Coy Toy", "On the Dot", "Bat Those Lashes", "Awe-Dascious", "Awe Goody", "Out Loud", "Very Vixen", "Thumbs Up", "Stun & Games", "Street Beats", "Major Edge", "Secret Weapon", "Original Artist", "Push It", "Max Power", "Wild One", "Instigator", "Total Rebel"]
-        mickey_shimmers = ["Own It", "Creative Collision", "Made Ya Look", "Extra Sparkle", "Staring Contest", "Super Sassy", "Talk Flirty", "Iconic Vibes", "Troublemaker", "Into Mischief"]
         mmickey = random.choices(mickey_mattes, k=mnum)
         smickey = random.choices(mickey_shimmers, k=snum)
         if snum == 0:
@@ -98,7 +96,7 @@ liner_button.pack()
 liner_result = tkinter.Label(window, text="")
 liner_result.pack()
 
-reset_button = tkinter.Button(window, text="Reset", command=reset)
+reset_button = tkinter.Button(window, text="Reset", command=reset, state="disabled")
 reset_button.pack()
 
 window.mainloop()
