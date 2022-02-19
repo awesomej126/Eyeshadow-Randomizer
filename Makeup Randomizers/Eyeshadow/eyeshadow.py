@@ -21,37 +21,35 @@ def palettes():
     palettes = ["James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette"]
     palette = random.choice(palettes)
     palette_result["text"] = "Eyeshadow palette: {0}".format(palette)
-
+    mnum = random.randint(2, 4)
+    snum = random.randint(0, 2)
     if palette == "James Charles Palette":
         palette_pic["image"] = jc_image
         james_mattes = ["Canvas", "518", "Rusted", "Tea", "Punch Me", "Mary", "You're Kidding", "Boutique", "Benny", "Flashback", "Tune", "Code James", "10% Off", "No Beans", "Spooky", "Bee", "Playground", "Brother", "Love That", "Pinkity Drinkity", "Social Blade", "Daddy", "Cola", "Escape", "Single", "Skip"]
         james_shimmers = ["Ringlight", "So Good", "Halloween", "Wig", "Sister", "Literally", "Shook", "Face", "Guac", "Hello", "Artistry", "Cape Cod", "A Capella"]
-        transition1 = random.choice(james_mattes)
-        crease1 = random.choice(james_mattes)
-        outer_v1 = random.choice(james_mattes)
-        lid1 = random.choice(james_shimmers)
-        lower_lash_line1 = random.choice(james_mattes)
-        shades_result["text"] = "Transition color: {0}, Crease color: {1}, Outer-V color: {2}, Lid Color: {3}, Lower Lash Line Color: {4}".format(transition1, crease1, outer_v1, lid1, lower_lash_line1)
+        mjames = random.choices(james_mattes, k=mnum)
+        sjames = random.choices(james_shimmers, k=snum)
+        if snum == 0:
+            sjames = "None"
+        shades_result["text"] = "Matte Shades: {0}, Shimmer Shades: {1}".format(mjames, sjames)
     elif palette == "Jaclyn Hill Palette":
         palette_pic["image"] = jh_image
         jaclyn_mattes = ["Silk Creme", "M.F.E.O.", "Creamsicle", "Butter", "Pooter", "Pukey", "Hunts", "Roxanne", "Jacz", "Chip", "Mocha", "Jada", "Enchanted", "Central Park", "Soda Pop", "Abyss"]
         jaclyn_shimmers = ["Enlight", "Beam", "Faint", "Sissy", "Little Lady", "Firework", "Queen", "Obsessed", "S.B.N.", "Hillster", "Buns", "Cranapple", "Royalty", "Twerk", "Hustle", "Meeks", "24/7", "Pool Party", "Diva"]
-        transition2 = random.choice(jaclyn_mattes)
-        crease2 = random.choice(jaclyn_mattes)
-        outer_v2 = random.choice(jaclyn_mattes)
-        lid2 = random.choice(jaclyn_shimmers)
-        lower_lash_line2 = random.choice(jaclyn_mattes)
-        shades_result["text"] = "Transition color: {0}, Crease color: {1}, Outer-V color: {2}, Lid Color: {3}, Lower Lash Line Color: {4}".format(transition2, crease2, outer_v2, lid2, lower_lash_line2)
+        mjaclyn = random.choices(jaclyn_mattes, k=mnum)
+        sjaclyn = random.choices(jaclyn_shimmers, k=snum)
+        if snum == 0:
+            sjaclyn = "None"
+        shades_result["text"] = "Matte Shades: {0}, Shimmer Shades: {1}".format(mjaclyn, sjaclyn)
     elif palette == "Mickey & Friends Palette":
         palette_pic["image"] = mickey_image
         mickey_mattes = ["Head Out", "Life's Short", "So Fearless", "Big Dreamer", "Play by Ear", "Stop & Stare", "Big Bows", "Coy Toy", "On the Dot", "Bat Those Lashes", "Awe-Dascious", "Awe Goody", "Out Loud", "Very Vixen", "Thumbs Up", "Stun & Games", "Street Beats", "Major Edge", "Secret Weapon", "Original Artist", "Push It", "Max Power", "Wild One", "Instigator", "Total Rebel"]
         mickey_shimmers = ["Own It", "Creative Collision", "Made Ya Look", "Extra Sparkle", "Staring Contest", "Super Sassy", "Talk Flirty", "Iconic Vibes", "Troublemaker", "Into Mischief"]
-        transition3 = random.choice(mickey_mattes)
-        crease3 = random.choice(mickey_mattes)
-        outer_v3 = random.choice(mickey_mattes)
-        lid3 = random.choice(mickey_shimmers)
-        lower_lash_line3 = random.choice(mickey_mattes)
-        shades_result["text"] = "Transition color: {0}, Crease color: {1}, Outer-V color: {2}, Lid Color: {3}, Lower Lash Line Color: {4}".format(transition3, crease3, outer_v3, lid3, lower_lash_line3)
+        mmickey = random.choices(mickey_mattes, k=mnum)
+        smickey = random.choices(mickey_shimmers, k=snum)
+        if snum == 0:
+            smickey = "None"
+        shades_result["text"] = "Matte Shades: {0}, Shimmer Shades: {1}".format(mmickey, smickey)
     palette_button["state"] = "disabled"
 
 # Chooses the style of eyeshadow
