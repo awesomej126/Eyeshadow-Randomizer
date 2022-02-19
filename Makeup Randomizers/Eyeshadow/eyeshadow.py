@@ -51,11 +51,11 @@ def palettes():
     palette_button["state"] = "disabled"
 
 # Chooses the style of eyeshadow
-def type():
+def eyeshadow_type():
     reset_button["state"] = "normal"
     types = ["Halo", "Cut Crease", "Half Cut Crease", "Smokey Eye"]
-    type = random.choice(types)
-    type_result["text"] = "Eyeshadow type: {0}".format(type)
+    t = random.choice(types)
+    type_result["text"] = "Eyeshadow type: {0}".format(t)
     type_button["state"] = "disabled"
 
 # Chooses the liner
@@ -72,6 +72,8 @@ def reset():
     palette_button["state"] = type_button["state"] = liner_button["state"] = "normal"
     palette_result["text"] = shades_result["text"] = type_result["text"] = liner_result["text"] = palette_pic["image"] = ""
 
+
+# Buttons
 palette_button = tkinter.Button(window, text="Palette", command=palettes)
 palette_button.pack()
 
@@ -84,7 +86,7 @@ palette_result.pack()
 shades_result = tkinter.Label(window, text="")
 shades_result.pack()
 
-type_button = tkinter.Button(window, text="Type", command=type)
+type_button = tkinter.Button(window, text="Type", command=eyeshadow_type)
 type_button.pack()
 
 type_result = tkinter.Label(window, text="")
