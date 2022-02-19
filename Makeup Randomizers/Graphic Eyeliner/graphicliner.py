@@ -20,20 +20,17 @@ def colors():
     shades = ["Pastels", "Neons"]
     shade = random.choice(shades)
     shade_result["text"] = "{0}".format(shade)
+    num = random.randint(1, 3)
     if shade == "Pastels":
         shade_pic["image"] = pastel_image
         pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel Teal", "Pastel Blue", "Pastel Purple", "White"]
-        pastel_1 = random.choice(pastels)
-        pastel_2 = random.choice(pastels)
-        pastel_3 = random.choice(pastels)
-        colors_result["text"] = "{0}, {1}, {2}".format(pastel_1, pastel_2, pastel_3)
+        pastel = random.choices(pastels, k = num)
+        colors_result["text"] = "".join(pastel)
     elif shade == "Neons":
         shade_pic["image"] = neon_image
         neons = ["Neon Pink", "Neon Red", "Neon Orange", "Neon Yellow", "Neon Green", "Neon Blue", "Neon Purple", "Black"]
-        neon_1 = random.choice(neons)
-        neon_2 = random.choice(neons)
-        neon_3 = random.choice(neons)
-        colors_result["text"] = "{0}, {1}, {2}".format(neon_1, neon_2, neon_3)
+        neon = random.choices(neons, k=num)
+        colors_result["text"] = "".join(neon)
 
 # Chooses style
 def type():
