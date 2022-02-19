@@ -24,7 +24,7 @@ def colors():
     if shade == "Pastels":
         shade_pic["image"] = pastel_image
         pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel Teal", "Pastel Blue", "Pastel Purple", "White"]
-        pastel = random.choices(pastels, k = num)
+        pastel = random.choices(pastels, k=num)
         colors_result["text"] = "".join(pastel)
     elif shade == "Neons":
         shade_pic["image"] = neon_image
