@@ -10,6 +10,7 @@ window.geometry("800x500")
 # Palette Images
 neon_image = ImageTk.PhotoImage(Image.open('Eyeliner/neon.jpg').resize((200, 200)))
 pastel_image = ImageTk.PhotoImage(Image.open('Eyeliner/pastel.jpg').resize((200, 200)))
+colour_galaxy_image = ImageTk.PhotoImage(Image.open('Eyeliner/colourgalaxy.jpg').resize((200, 200)))
 
 # Functions
 # Chooses palette and colors
@@ -17,12 +18,13 @@ def colors():
     reset_button["state"] = "normal"
 
     colors_button["state"] = "disabled"
-    shades = ["Pastels", "Neons"]
+    shades = ["Pastels", "Neons", "Colour Galaxy"]
     shade = random.choice(shades)
     shade_result["text"] = "{0}".format(shade)
 
     pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel Teal", "Pastel Blue", "Pastel Purple", "White"]
     neons = ["Neon Pink", "Electric Neon Orange", "Neon Orange", "Neon Yellow", "Neon Green", "Neon Blue", "Neon Purple", "Black"]
+    colour_galaxy = ["Pink", "Yellow", "Orange", "Red", "Purple", "Blue", "Green", "Gray"]
 
     num = random.randint(1, 3)
 
@@ -35,6 +37,11 @@ def colors():
         shade_pic["image"] = neon_image
         neon = random.choices(neons, k=num)
         colors_result["text"] = "".join(neon)
+
+    elif shade == "Colour Galaxy":
+        shade_pic["image"] = colour_galaxy_image
+        galaxy = random.choices(colour_galaxy, k=num)
+        colors_result["text"] = "".join(galaxy)
 
 # Chooses style
 def liner_type():
