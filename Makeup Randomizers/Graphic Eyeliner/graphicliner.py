@@ -20,7 +20,7 @@ def colors():
     colors_button["state"] = "disabled"
     shades = ["Pastels", "Neons", "Colour Galaxy"]
     shade = random.choice(shades)
-    shade_result["text"] = "{0}".format(shade)
+    shade_result["text"] = "".join(shade)
 
     pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel Teal", "Pastel Blue", "Pastel Purple", "White"]
     neons = ["Neon Pink", "Electric Neon Orange", "Neon Orange", "Neon Yellow", "Neon Green", "Neon Blue", "Neon Purple", "Black"]
@@ -31,17 +31,32 @@ def colors():
     if shade == "Pastels":
         shade_pic["image"] = pastel_image
         pastel = random.choices(pastels, k=num)
-        colors_result["text"] = "".join(pastel)
+        if len(pastel) == 1:
+            colors_result["text"] = "".join(pastel)
+        elif len(pastel) == 2:
+            colors_result["text"] = "{0}, {1}".format(pastel[0], pastel[1])
+        else:
+            colors_result["text"] = "{0}, {1}, {2}".format(pastel[0], pastel[1], pastel[2])
 
     elif shade == "Neons":
         shade_pic["image"] = neon_image
         neon = random.choices(neons, k=num)
-        colors_result["text"] = "".join(neon)
+        if len(neon) == 1:
+            colors_result["text"] = "".join(neon)
+        elif len(neon) == 2:
+            colors_result["text"] = "{0}, {1}".format(neon[0], neon[1])
+        else:
+            colors_result["text"] = "{0}, {1}, {2}".format(neon[0], neon[1], neon[2])
 
     elif shade == "Colour Galaxy":
         shade_pic["image"] = colour_galaxy_image
         galaxy = random.choices(colour_galaxy, k=num)
-        colors_result["text"] = "".join(galaxy)
+        if len(galaxy) == 1:
+            colors_result["text"] = "".join(galaxy)
+        elif len(galaxy) == 2:
+            colors_result["text"] = "{0}, {1}".format(galaxy[0], galaxy[1])
+        else:
+            colors_result["text"] = "{0}, {1}, {2}".format(galaxy[0], galaxy[1], galaxy[2])
 
 # Chooses style
 def liner_type():
