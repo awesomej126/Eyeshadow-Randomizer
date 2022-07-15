@@ -6,8 +6,6 @@ from PIL import ImageTk, Image
 window = tkinter.Tk()
 window.title("Graphic Eyeliner Randomizer")
 window.geometry("800x800")
-scrollbar = tkinter.Scrollbar(window)
-scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 
 # Palette Images
 neon_image = ImageTk.PhotoImage(Image.open('Eyeliner/neon.jpg').resize((150, 150)))
@@ -19,6 +17,7 @@ colour_galaxy_image = ImageTk.PhotoImage(Image.open('Eyeliner/colourgalaxy.jpg')
 def colors():
     reset_button["state"] = "normal"
     colors_button["state"] = "disabled"
+    main_text["text"] = "Now choose the liner style..."
 
     shades = ["Pastels", "Neons", "Colour Galaxy"]
     pastels = ["Pink Velvet", "Peaches & Cream", "Banana Split", "Key Lime", "Ice Pop", "Blue Raspberry", "Gelato", "Skate Date"]
@@ -119,19 +118,21 @@ def colors():
 
 
 # Chooses style
-def liner_type():
+def style():
     reset_button["state"] = "normal"
+    style_button["state"] = "disabled"
+    main_text["text"] = "Here's your graphic liner look!!"
 
-    type_button["state"] = "disabled"
-    types = ["Floating Crease Liner", "Double Liner", "Dotted Liner", "Flames", "Winged", "Whatever The Fuck You Want"]
-    t = random.choice(types)
-    type_result["text"] = "".join(t)
+    styles = ["Floating Crease Liner", "Double Liner", "Dotted Liner", "Flames", "Winged", "Whatever The Fuck You Want"]
+    s = random.choice(styles)
+    style_result["text"] = "".join(s)
 
 # Resets program
 def reset():
+    main_text["text"] = "How many palettes do you want to use?"
     reset_button["state"] = "disabled"
-    colors_button["state"] = type_button["state"] = "normal"
-    colors_result["text"] = shade_result["text"] = type_result["text"] = shade_pic["image"] = shade_pic2["image"] = shade_pic3["image"] = ""
+    colors_button["state"] = style_button["state"] = "normal"
+    colors_result["text"] = shade_result["text"] = style_result["text"] = shade_pic["image"] = shade_pic2["image"] = shade_pic3["image"] = ""
     user_input.delete(0, "end")
 
 # Buttons
@@ -160,11 +161,11 @@ shade_result.pack()
 colors_result = tkinter.Label(window, text="")
 colors_result.pack()
 
-type_button = tkinter.Button(window, text="Type", command=liner_type, state="normal")
-type_button.pack()
+style_button = tkinter.Button(window, text="Style", command=style, state="normal")
+style_button.pack()
 
-type_result = tkinter.Label(window, text="")
-type_result.pack()
+style_result = tkinter.Label(window, text="")
+style_result.pack()
 
 reset_button = tkinter.Button(window, text="Reset", command=reset, state="disabled")
 reset_button.pack()
