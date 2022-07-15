@@ -22,9 +22,9 @@ def colors():
     shade = random.choice(shades)
     shade_result["text"] = "".join(shade)
 
-    pastels = ["Pastel Pink", "Pastel Orange", "Pastel Yellow", "Pastel Green", "Pastel Teal", "Pastel Blue", "Pastel Purple", "White"]
-    neons = ["Neon Pink", "Electric Neon Orange", "Neon Orange", "Neon Yellow", "Neon Green", "Neon Blue", "Neon Purple", "Black"]
-    colour_galaxy = ["Pink", "Yellow", "Orange", "Red", "Purple", "Blue", "Green", "Gray"]
+    pastels = ["Pink Velvet", "Peaches & Cream", "Banana Split", "Key Lime", "Ice Pop", "Blue Raspberry", "Gelato", "Skate Date"]
+    neons = ["Roller Skate", "Hot Pants", "Chill Pill", "Crop Top", "Spandex", "Mood Ring", "Tie Dye", "Disco Fever"]
+    colour_galaxy = ["Hard Candy", "Lemon Lush", "Mango Sunrise", "Bandana", "Platforms", "Bell Bottoms", "Sour Apple", "Graphite"]
 
     num = random.randint(1, 3)
 
@@ -76,7 +76,7 @@ def reset():
 
 # Buttons
 colors_button = tkinter.Button(window, text="Palette", command=colors, state="normal")
-colors_button.pack()
+colors_button.pack(pady=8)
 
 shade_pic = tkinter.Label(window, image="")
 shade_pic.pack()
