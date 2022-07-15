@@ -135,7 +135,7 @@ def reset():
     colors_result["text"] = shade_result["text"] = style_result["text"] = shade_pic["image"] = shade_pic2["image"] = shade_pic3["image"] = ""
     user_input.delete(0, "end")
 
-# Buttons
+# Buttons & Labels
 main_text = tkinter.Label(window, text="How many palettes do you want to use?")
 main_text.pack()
 
