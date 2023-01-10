@@ -13,6 +13,12 @@ pastel_image = ImageTk.PhotoImage(Image.open('Eyeliner/pastel.jpg').resize((150,
 colour_galaxy_image = ImageTk.PhotoImage(Image.open('Eyeliner/colourgalaxy.jpg').resize((150, 150)))
 
 # Functions
+def palette():
+    pass
+    
+def pot():
+    pass
+
 # Chooses palette and colors
 def colors():
     reset_button["state"] = "normal"
@@ -34,32 +40,17 @@ def colors():
         if shade == "Pastels":
             shade_pic["image"] = pastel_image
             pastel = random.choices(pastels, k=num)
-            if len(pastel) == 1:
-                colors_result["text"] = "".join(pastel)
-            elif len(pastel) == 2:
-                colors_result["text"] = "{0}, {1}".format(pastel[0], pastel[1])
-            else:
-                colors_result["text"] = "{0}, {1}, {2}".format(pastel[0], pastel[1], pastel[2])
+            colors_result["text"] = ", ".join(pastel)
 
         elif shade == "Neons":
             shade_pic["image"] = neon_image
             neon = random.choices(neons, k=num)
-            if len(neon) == 1:
-                colors_result["text"] = "".join(neon)
-            elif len(neon) == 2:
-                colors_result["text"] = "{0}, {1}".format(neon[0], neon[1])
-            else:
-                colors_result["text"] = "{0}, {1}, {2}".format(neon[0], neon[1], neon[2])
+            colors_result["text"] = ", ".join(neon)
 
         elif shade == "Colour Galaxy":
             shade_pic["image"] = colour_galaxy_image
             galaxy = random.choices(colour_galaxy, k=num)
-            if len(galaxy) == 1:
-                colors_result["text"] = "".join(galaxy)
-            elif len(galaxy) == 2:
-                colors_result["text"] = "{0}, {1}".format(galaxy[0], galaxy[1])
-            else:
-                colors_result["text"] = "{0}, {1}, {2}".format(galaxy[0], galaxy[1], galaxy[2])
+            colors_result["text"] = ", ".join(galaxy)
 
     elif input.get() == "2":
         shade = random.sample(shades, k=2)
@@ -67,54 +58,56 @@ def colors():
         if shade[0] == "Pastels" and shade[1] == "Neons":
             shade_pic["image"] = pastel_image
             shade_pic2["image"] = neon_image
-            color1 = random.choice(pastels)
-            color2 = random.choice(neons)
+            color1 = "".join(random.choice(pastels))
+            color2 = "".join(random.choice(neons))
             colors_result["text"] = "{0}, {1}".format(color1, color2)
 
         elif shade[0] == "Pastels" or shade[1] == "Colour Galaxy":
             shade_pic["image"] = pastel_image
             shade_pic2["image"] = colour_galaxy_image
-            color1 = random.choice(pastels)
-            color2 = random.choice(colour_galaxy)
+            color1 = "".join(random.choice(pastels))
+            color2 = "".join(random.choice(colour_galaxy))
             colors_result["text"] = "{0}, {1}".format(color1, color2)
 
         elif shade[0] == "Neons" or shade[1] == "Colour Galaxy":
             shade_pic["image"] = neon_image
             shade_pic2["image"] = colour_galaxy_image
-            color1 = random.choice(neons)
-            color2 = random.choice(colour_galaxy)
+            color1 = "".join(random.choice(neons))
+            color2 = "".join(random.choice(colour_galaxy))
             colors_result["text"] = "{0}, {1}".format(color1, color2)
 
         elif shade[0] == "Neons" or shade[1] == "Pastels":
             shade_pic["image"] = neon_image
             shade_pic2["image"] = pastel_image
-            color1 = random.choice(neons)
-            color2 = random.choice(pastels)
+            color1 = "".join(random.choice(neons))
+            color2 = "".join(random.choice(pastels))
             colors_result["text"] = "{0}, {1}".format(color1, color2)
 
         elif shade[0] == "Colour Galaxy" or shade[1] == "Pastels":
             shade_pic["image"] = colour_galaxy_image
             shade_pic2["image"] = pastel_image
-            color1 = random.choice(colour_galaxy)
-            color2 = random.choice(pastels)
+            color1 = "".join(random.choice(colour_galaxy))
+            color2 = "".join(random.choice(pastels))
             colors_result["text"] = "{0}, {1}".format(color1, color2)
 
         elif shade[0] == "Colour Galaxy" or shade[1] == "Neons":
             shade_pic["image"] = colour_galaxy_image
             shade_pic2["image"] = neon_image
-            color1 = random.choice(colour_galaxy)
-            color2 = random.choice(neons)
+            color1 = "".join(random.choice(colour_galaxy))
+            color2 = "".join(random.choice(neons))
             colors_result["text"] = "{0}, {1}".format(color1, color2)
 
-    else:
+    elif input.get() == "3":
         shade_result["text"] = "{0}, {1}, & {2}".format(shades[0], shades[1], shades[2])
         shade_pic["image"] = colour_galaxy_image
         shade_pic2["image"] = neon_image
         shade_pic3["image"] = pastel_image
-        galaxy = random.choice(colour_galaxy)
-        neon = random.choice(neons)
-        pastel = random.choice(pastels)
+        galaxy = "".join(random.choice(colour_galaxy))
+        neon = "".join(random.choice(neons))
+        pastel = "".join(random.choice(pastels))
         colors_result["text"] = "{0}, {1}, {2}".format(galaxy, neon, pastel)
+    else:
+        main_text["text"] = "Invalid number"
 
 
 # Chooses style
@@ -135,8 +128,8 @@ def reset():
     colors_result["text"] = shade_result["text"] = style_result["text"] = shade_pic["image"] = shade_pic2["image"] = shade_pic3["image"] = ""
     user_input.delete(0, "end")
 
-# Buttons & Labels
-main_text = tkinter.Label(window, text="How many palettes do you want to use?")
+# Buttons & Text
+main_text = tkinter.Label(window, text="How many palettes do you want to use? Choose a number between 1 and 3.")
 main_text.pack()
 
 input = tkinter.StringVar()
