@@ -1,3 +1,4 @@
+# from faulthandler import disable
 import random
 import tkinter
 from PIL import ImageTk, Image
@@ -53,10 +54,10 @@ def palettes():
         m = q_shades
         snum = 0
 
-    mattes = random.choices(m, k=mnum)
-    shimmers = "None" if snum == 0 else random.choices(s, k=snum)
+    mattes = ", ".join(random.choices(m, k=mnum))
+    shimmers = "None" if snum == 0 else ", ".join(random.choices(s, k=snum))
 
-    shades_result["text"] = "Matte Shades: {0}, Shimmer Shades: {1}".format(mattes, shimmers)
+    shades_result["text"] = "Matte Shades: {}; Shimmer Shades: {}".format(mattes, shimmers)
 
 # Chooses the style of eyeshadow
 def eyeshadow_type():
