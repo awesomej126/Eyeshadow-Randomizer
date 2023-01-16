@@ -13,12 +13,6 @@ pastel_image = ImageTk.PhotoImage(Image.open('Eyeliner/pastel.jpg').resize((150,
 colour_galaxy_image = ImageTk.PhotoImage(Image.open('Eyeliner/colourgalaxy.jpg').resize((150, 150)))
 
 # Functions
-def palette():
-    pass
-    
-def pot():
-    pass
-
 # Chooses palette and colors
 def colors():
     reset_button["state"] = "normal"
