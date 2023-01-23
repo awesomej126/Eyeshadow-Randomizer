@@ -10,7 +10,7 @@ window.geometry("800x800")
 # Palette Images
 neon_image = ImageTk.PhotoImage(Image.open('Eyeliner/neon.jpg').resize((150, 150)))
 pastel_image = ImageTk.PhotoImage(Image.open('Eyeliner/pastel.jpg').resize((150, 150)))
-colour_galaxy_image = ImageTk.PhotoImage(Image.open('Eyeliner/colourgalaxy.jpg').resize((150, 150)))
+colour_galaxy_image = ImageTk.PhotoImage(Image.open('Eyeliner/colour_galaxy.jpg').resize((150, 150)))
 
 # Functions
 # Chooses palette and colors
