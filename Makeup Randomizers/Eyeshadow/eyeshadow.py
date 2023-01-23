@@ -9,10 +9,10 @@ window.title("Eyeshadow Randomizer")
 window.geometry("1000x500")
 
 # Palette Images
-jh_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jhpalette.jpg').resize((350, 200)))
-jc_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jcpalette.jpg').resize((250, 200)))
-mickey_image = ImageTk.PhotoImage(Image.open('Eyeshadow/mickeymouse.jpg').resize((250, 200)))
-q_image = ImageTk.PhotoImage(Image.open('Eyeshadow/9q.jpg').resize((250, 200)))
+jh_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jh_palette.jpg').resize((350, 200)))
+jc_image = ImageTk.PhotoImage(Image.open('Eyeshadow/jc_palette.jpg').resize((250, 200)))
+mickey_image = ImageTk.PhotoImage(Image.open('Eyeshadow/mickey_mouse.jpg').resize((250, 200)))
+q_image = ImageTk.PhotoImage(Image.open('Eyeshadow/9Q.jpg').resize((250, 200)))
 
 # Shade Names
 james_mattes = ["Canvas", "518", "Rusted", "Tea", "Punch Me", "Mary", "You're Kidding", "Boutique", "Benny", "Flashback", "Tune", "Code James", "10% Off", "No Beans", "Spooky", "Bee", "Playground", "Brother", "Love That", "Pinkity Drinkity", "Social Blade", "Daddy", "Cola", "Escape", "Single", "Skip"]
