@@ -24,21 +24,26 @@ mickey_shimmers = ("Own It", "Creative Collision", "Made Ya Look", "Extra Sparkl
 q_shades = ("Life", "Healing", "Sun", "Spirit", "Fluidity", "Nature", "Representation", "Serenity", "Visibilty")
 
 # Functions
-# Associates palette with its picture and shades, chooses shades
-def palettes(palette_name, palette_image, mattes, shimmers=()):
-    palette_pic["image"] = palette_image
-    palette_result["text"] = "Eyeshadow palette: {0}".format(palette_name)
+# Chooses shades, adds them onto GUI
+def shade_selector(mattes, shimmers=()):
     m = mattes
     if shimmers != ():
         s = shimmers
+    else:
+        snum = 0
     
     mnum = random.randint(2, 4)
     snum = random.randint(0, 2)
 
     selected_mattes = ", ".join(random.choices(m, k=mnum))
-    selected_shimmers = "None" if snum == 0 else ", ".join(random.choices(s, k=snum))
+    selected_shimmers = "None" if snum == 0 or shimmers == () else ", ".join(random.choices(s, k=snum))
 
     shades_result["text"] = "Matte Shades: {}; Shimmer Shades: {}".format(selected_mattes, selected_shimmers)
+
+# Associates palette with its picture, adds them onto GUI
+def palettes(palette_name, palette_image):
+    palette_pic["image"] = palette_image
+    palette_result["text"] = "Eyeshadow palette: {0}".format(palette_name)
 
 # Chooses your palette, colors determined by palette_selector
 def palette_selector():
@@ -47,16 +52,20 @@ def palette_selector():
     selected_palette = random.choice(palette_names)
 
     if selected_palette == "James Charles Palette":
-        palettes(selected_palette, jc_image, jc_mattes, jc_shimmers)
+        palettes(selected_palette, jc_image)
+        shade_selector(jc_mattes, jc_shimmers)
 
     elif selected_palette == "Jaclyn Hill Palette":
-        palettes(selected_palette, jh_image, jh_mattes, jh_shimmers)
+        palettes(selected_palette, jh_image)
+        shade_selector(jh_mattes, jh_shimmers)
 
     elif selected_palette == "Mickey & Friends Palette":
-        palettes(selected_palette, mickey_image, mickey_mattes, mickey_shimmers)
+        palettes(selected_palette, mickey_image)
+        shade_selector(mickey_mattes, mickey_shimmers)
     
     elif selected_palette == "9Q Love Matters Palette":
-        palettes(selected_palette, q_image, q_shades)
+        palettes(selected_palette, q_image)
+        shade_selector(q_shades)
 
 # Chooses the style of eyeshadow
 def eyeshadow_type():
