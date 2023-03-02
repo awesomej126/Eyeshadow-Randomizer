@@ -1,4 +1,3 @@
-# from faulthandler import disable
 import random
 import tkinter
 from PIL import ImageTk, Image
