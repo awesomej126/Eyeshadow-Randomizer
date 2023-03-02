@@ -32,8 +32,7 @@ def one_palette():
 
 # Selects two palettes and chooses random shades
 def two_palettes():
-    index = random.sample(range(0, 3), k=2)
-    print(index)
+    index = random.sample(range(3), k=2)
     shade_num = random.randint(1, 2)
     palette_pic["image"] = palette_images[index[0]]
     palette_pic_2["image"] = palette_images[index[1]]
