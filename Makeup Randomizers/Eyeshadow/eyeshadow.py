@@ -113,5 +113,5 @@ liner_result.pack()
 
 reset_button = tkinter.Button(window, text="Reset", command=reset)
 reset_button.pack()
-
+ 
 window.mainloop()
