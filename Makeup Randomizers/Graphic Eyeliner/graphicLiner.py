@@ -32,26 +32,27 @@ def one_palette():
 
 # Selects two palettes and chooses random shades
 def two_palettes():
-    index = random.sample(range(0, 2), k=2)
+    index = random.sample(range(0, 3), k=2)
+    print(index)
     shade_num = random.randint(1, 2)
     palette_pic["image"] = palette_images[index[0]]
     palette_pic_2["image"] = palette_images[index[1]]
-    shades_1 = random.choices(palettes[index[0]], k=shade_num)
-    shades_2 = random.choices(palettes[index[1]], k=shade_num)
+    shades_1 = random.sample(palettes[index[0]], k=shade_num)
+    shades_2 = random.sample(palettes[index[1]], k=shade_num)
     shades = shades_1 + shades_2
-    palette_result["text"] = "{0} & {1}".format(palette_names[index[0]], palette_names[index[1]])
+    palette_result["text"] = f"{palette_names[index[0]]} & {palette_names[index[1]]}"
     colors_result["text"] = ", ".join(shades)
 
 # Selects all three palettes and chooses random shades
 def three_palettes():
-    palette_result["text"] = "{0}, {1}, & {2}".format(palette_names[0], palette_names[1], palette_names[2])
+    palette_result["text"] = f"{palette_names[0]}, {palette_names[1]}, & {palette_names[2]}"
     palette_pic["image"] = colour_galaxy_image
     palette_pic_2["image"] = neon_image
     palette_pic_3["image"] = pastel_image
-    galaxy_shades = "".join(random.choice(colour_galaxy))
-    neon_shades = "".join(random.choice(neons))
-    pastel_shades = "".join(random.choice(pastels))
-    colors_result["text"] = "{0}, {1}, {2}".format(galaxy_shades, neon_shades, pastel_shades)
+    galaxy_shade = "".join(random.choice(colour_galaxy))
+    neon_shade = "".join(random.choice(neons))
+    pastel_shade = "".join(random.choice(pastels))
+    colors_result["text"] = f"{galaxy_shade}, {neon_shade}, {pastel_shade}"
 
 # Chooses palette and colors
 def color_selector():
