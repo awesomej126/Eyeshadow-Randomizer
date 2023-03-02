@@ -1,6 +1,5 @@
 import tkinter
 import random
-#from urllib.parse import uses_fragment
 from PIL import ImageTk, Image
 
 # GUI Stuff
