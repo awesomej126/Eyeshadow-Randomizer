@@ -12,6 +12,7 @@ neon_image = ImageTk.PhotoImage(Image.open('neon.jpg').resize((150, 150)))
 pastel_image = ImageTk.PhotoImage(Image.open('pastel.jpg').resize((150, 150)))
 colour_galaxy_image = ImageTk.PhotoImage(Image.open('colour_galaxy.jpg').resize((150, 150)))
 
+# Tuples of palette names, shades, and images
 pastels = ("Pink Velvet", "Peaches & Cream", "Banana Split", "Key Lime", "Ice Pop", "Blue Raspberry", "Gelato", "Skate Date")
 neons = ("Roller Skate", "Hot Pants", "Chill Pill", "Crop Top", "Spandex", "Mood Ring", "Tie Dye", "Disco Fever")
 colour_galaxy = ("Hard Candy", "Lemon Lush", "Mango Sunrise", "Bandana", "Platforms", "Bell Bottoms", "Sour Apple", "Graphite")
@@ -72,7 +73,6 @@ def color_selector():
 
     else:
         main_text["text"] = "Invalid number"
-
 
 # Chooses style
 def style():
