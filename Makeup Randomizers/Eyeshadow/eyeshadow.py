@@ -25,8 +25,8 @@ MICKEY_MATTES = ["Head Out", "Life's Short", "So Fearless", "Big Dreamer", "Play
 MICKEY_SHIMMERS = ["Own It", "Creative Collision", "Made Ya Look", "Extra Sparkle", "Staring Contest", "Super Sassy", "Talk Flirty", "Iconic Vibes", "Troublemaker", "Into Mischief"]
 Q_MATTES = ["Life", "Healing", "Sun", "Spirit", "Fluidity", "Nature", "Representation", "Serenity", "Visibilty"]
 Q_SHIMMERS = []
-PALETTE_NAMES_LIST = ["James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette", "9Q Love Matters Palette"]
-PALETTE_IMAGES_LIST = [jc_image, jh_image, mickey_image, q_image]
+NAMES = ["James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette", "9Q Love Matters Palette"]
+IMAGES = [jc_image, jh_image, mickey_image, q_image]
 MATTES_LIST = [JC_MATTES, JH_MATTES, MICKEY_MATTES, Q_MATTES]
 SHIMMERS_LIST = [JC_SHIMMERS, JH_SHIMMERS, MICKEY_SHIMMERS, Q_SHIMMERS]
 STYLES = ["Halo", "Cut Crease", "Half Cut Crease", "Smokey Eye"]
@@ -55,9 +55,9 @@ def palettes():
     main_text.configure(text="Now choose your eyeshadow style...")
 
     # Chooses random palette
-    index = random.randint(0, len(PALETTE_NAMES_LIST)-1)
-    palette_result.configure(text=PALETTE_NAMES_LIST[index])
-    palette_pic.configure(image=PALETTE_IMAGES_LIST[index])
+    index = random.randint(0, len(NAMES)-1)
+    palette_result.configure(text=NAMES[index])
+    palette_image_label.configure(image=IMAGES[index])
 
     # Selects shades
     shade_selector(MATTES_LIST[index], SHIMMERS_LIST[index])
@@ -92,7 +92,7 @@ def reset():
     type_result.configure(text="")
     shades_result.configure(text="")
     palette_result.configure(text="")
-    palette_pic.configure(image="")
+    palette_image_label.configure(image="")
 
 # Buttons
 main_text = tkinter.Label(window, text="Choose your palette...")
@@ -101,8 +101,8 @@ main_text.pack()
 palette_button = tkinter.Button(window, text="Palette", command=palettes)
 palette_button.pack()
 
-palette_pic = tkinter.Label(window, image="")
-palette_pic.pack()
+palette_image_label = tkinter.Label(window, image="")
+palette_image_label.pack()
 
 palette_result = tkinter.Label(window, text="")
 palette_result.pack()
