@@ -14,7 +14,7 @@ try:
     mickey_image = ImageTk.PhotoImage(Image.open('mickey_mouse.jpg').resize((250, 200)))
     q_image = ImageTk.PhotoImage(Image.open('9Q.jpg').resize((250, 200)))
 except FileNotFoundError:
-    print("File cannot be found")
+    raise Exception("File cannot be found")
 
 # Palette and shade names
 JC_MATTES = ["Canvas", "518", "Rusted", "Tea", "Punch Me", "Mary", "You're Kidding", "Boutique", "Benny", "Flashback", "Tune", "Code James", "10% Off", "No Beans", "Spooky", "Bee", "Playground", "Brother", "Love That", "Pinkity Drinkity", "Social Blade", "Daddy", "Cola", "Escape", "Single", "Skip"]
@@ -25,10 +25,10 @@ MICKEY_MATTES = ["Head Out", "Life's Short", "So Fearless", "Big Dreamer", "Play
 MICKEY_SHIMMERS = ["Own It", "Creative Collision", "Made Ya Look", "Extra Sparkle", "Staring Contest", "Super Sassy", "Talk Flirty", "Iconic Vibes", "Troublemaker", "Into Mischief"]
 Q_MATTES = ["Life", "Healing", "Sun", "Spirit", "Fluidity", "Nature", "Representation", "Serenity", "Visibilty"]
 Q_SHIMMERS = []
-PALETTE_NAMES_LIST = ("James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette", "9Q Love Matters Palette")
-PALETTE_IMAGES_LIST = (jc_image, jh_image, mickey_image, q_image)
-MATTES_LIST = (JC_MATTES, JH_MATTES, MICKEY_MATTES, Q_MATTES)
-SHIMMERS_LIST = (JC_SHIMMERS, JH_SHIMMERS, MICKEY_SHIMMERS, Q_SHIMMERS)
+PALETTE_NAMES_LIST = ["James Charles Palette", "Jaclyn Hill Palette", "Mickey & Friends Palette", "9Q Love Matters Palette"]
+PALETTE_IMAGES_LIST = [jc_image, jh_image, mickey_image, q_image]
+MATTES_LIST = [JC_MATTES, JH_MATTES, MICKEY_MATTES, Q_MATTES]
+SHIMMERS_LIST = [JC_SHIMMERS, JH_SHIMMERS, MICKEY_SHIMMERS, Q_SHIMMERS]
 STYLES = ["Halo", "Cut Crease", "Half Cut Crease", "Smokey Eye"]
 LINERS = ["Winged", "Smudged", "None"]
 
@@ -37,16 +37,12 @@ LINERS = ["Winged", "Smudged", "None"]
 def shade_selector(mattes, shimmers):
 
     # Chooses number of matte and shimmer eyeshadows
-    mnum = random.randint(2, 4)
-    snum = random.randint(0, 2) if shimmers != () else 0
+    m_num = random.randint(2, 4)
+    s_num = random.randint(0, 2) if shimmers != [] else 0
 
     # Chooses random mattes and shimmers
-    selected_mattes = ", ".join(random.sample(mattes, k=mnum))
-    try:
-        selected_shimmers = ", ".join(random.sample(shimmers, k=snum)) if snum > 0 else "None"
-    except ValueError:
-        snum = 0
-        selected_shimmers = "None"
+    selected_mattes = ", ".join(random.sample(mattes, k=m_num))
+    selected_shimmers = ", ".join(random.sample(shimmers, k=s_num)) if s_num > 0 else "None"
 
     # Adds selected shades onto GUI
     shades_result.configure(text=f"Matte Shades: {selected_mattes}; Shimmer Shades: {selected_shimmers}")
