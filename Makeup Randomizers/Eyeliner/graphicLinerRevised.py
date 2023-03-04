@@ -12,79 +12,103 @@ neon_image = ImageTk.PhotoImage(Image.open('neon.jpg').resize((150, 150)))
 pastel_image = ImageTk.PhotoImage(Image.open('pastel.jpg').resize((150, 150)))
 colour_galaxy_image = ImageTk.PhotoImage(Image.open('colour_galaxy.jpg').resize((150, 150)))
 
-# Tuples of palette names, shades, and images
-pastels = ("Pink Velvet", "Peaches & Cream", "Banana Split", "Key Lime", "Ice Pop", "Blue Raspberry", "Gelato", "Skate Date")
-neons = ("Roller Skate", "Hot Pants", "Chill Pill", "Crop Top", "Spandex", "Mood Ring", "Tie Dye", "Disco Fever")
-colour_galaxy = ("Hard Candy", "Lemon Lush", "Mango Sunrise", "Bandana", "Platforms", "Bell Bottoms", "Sour Apple", "Graphite")
-palettes = (pastels, neons, colour_galaxy)
-palette_names = ("Pastels", "Neons", "Colour Galaxy")
-palette_images = (pastel_image, neon_image, colour_galaxy_image)
+# Palette names, shades, and images as well as eyeliner styles
+PASTELS = ["Pink Velvet", "Peaches & Cream", "Banana Split", "Key Lime", "Ice Pop", "Blue Raspberry", "Gelato", "Skate Date"]
+NEONS = ["Roller Skate", "Hot Pants", "Chill Pill", "Crop Top", "Spandex", "Mood Ring", "Tie Dye", "Disco Fever"]
+COLOUR_GALAXY = ["Hard Candy", "Lemon Lush", "Mango Sunrise", "Bandana", "Platforms", "Bell Bottoms", "Sour Apple", "Graphite"]
+SHADES = [PASTELS, NEONS, COLOUR_GALAXY]
+NAMES = ["Pastels", "Neons", "Colour Galaxy"]
+IMAGES = [pastel_image, neon_image, colour_galaxy_image]
+STYLES = ["Floating Crease Liner", "Double Liner", "Dotted Liner", "Flames", "Winged", "Freestyle"]
 
 # Functions
 # Selects only one palette and chooses random shades
 def one_palette():
-    reset_button["state"] = "normal"
-    one_palette_button["state"] = two_palettes_button["state"] = three_palettes_button["state"] = "disabled"
-    main_text["text"] = "Now choose the liner style..."
+
+    # Disables all palette buttons, enables reset button, changes main text
+    one_palette_button.configure(state=tkinter.DISABLED)
+    two_palettes_button.configure(state=tkinter.DISABLED)
+    three_palettes_button.configure(state=tkinter.DISABLED)
+    reset_button.configure(state=tkinter.NORMAL)
+    main_text.configure(text="Now choose your eyeliner style...")
 
     index = random.randint(0, 2)
-    shade_num = random.randint(1, 3)
-    palette_pic["image"] = palette_images[index]
-    shades = random.sample(palettes[index], k=shade_num)
-    palette_result["text"] = "".join(palette_names[index])
-    colors_result["text"] = ", ".join(shades)
+    num_shades = random.randint(1, 3)
+    palette_image_label_1.configure(image=IMAGES[index])
+    shades = random.sample(SHADES[index], k=num_shades)
+    palette_result.configure(text="".join(NAMES[index]))
+    colors_result.configure(text=", ".join(shades))
 
 # Selects two palettes and chooses random shades
 def two_palettes():
-    reset_button["state"] = "normal"
-    one_palette_button["state"] = two_palettes_button["state"] = three_palettes_button["state"] = "disabled"
-    main_text["text"] = "Now choose the liner style..."
+
+    # Disables all palette buttons, enables reset button, changes main text
+    one_palette_button.configure(state=tkinter.DISABLED)
+    two_palettes_button.configure(state=tkinter.DISABLED)
+    three_palettes_button.configure(state=tkinter.DISABLED)
+    reset_button.configure(state=tkinter.NORMAL)
+    main_text.configure(text="Now choose your eyeliner style...")
 
     index = random.sample(range(3), k=2)
     shade_num_1 = random.randint(1, 2)
     shade_num_2 = random.randint(1, 2)
-    palette_pic["image"] = palette_images[index[0]]
-    palette_pic_2["image"] = palette_images[index[1]]
-    shades_1 = random.sample(palettes[index[0]], k=shade_num_1)
-    shades_2 = random.sample(palettes[index[1]], k=shade_num_2)
+    palette_image_label_1.configure(image=IMAGES[index[0]])
+    palette_image_label_2.configure(image=IMAGES[index[1]])
+    shades_1 = random.sample(SHADES[index[0]], k=shade_num_1)
+    shades_2 = random.sample(SHADES[index[1]], k=shade_num_2)
     shades = shades_1 + shades_2
-    palette_result["text"] = f"{palette_names[index[0]]} & {palette_names[index[1]]}"
-    colors_result["text"] = ", ".join(shades)
+    palette_result.configure(text=f"{NAMES[index[0]]} & {NAMES[index[1]]}")
+    colors_result.configure(text=", ".join(shades))
 
 # Selects all three palettes and chooses random shades
 def three_palettes():
-    reset_button["state"] = "normal"
-    one_palette_button["state"] = two_palettes_button["state"] = three_palettes_button["state"] = "disabled"
-    main_text["text"] = "Now choose the liner style..."
 
-    palette_result["text"] = f"{palette_names[0]}, {palette_names[1]}, & {palette_names[2]}"
-    palette_pic["image"] = pastel_image
-    palette_pic_2["image"] = neon_image
-    palette_pic_3["image"] = colour_galaxy_image
-    galaxy_shade = "".join(random.choice(colour_galaxy))
-    neon_shade = "".join(random.choice(neons))
-    pastel_shade = "".join(random.choice(pastels))
-    colors_result["text"] = f"{pastel_shade}, {neon_shade}, {galaxy_shade}"
+    # Disables all palette buttons, enables reset button, changes main text
+    one_palette_button.configure(state=tkinter.DISABLED)
+    two_palettes_button.configure(state=tkinter.DISABLED)
+    three_palettes_button.configure(state=tkinter.DISABLED)
+    reset_button.configure(state=tkinter.NORMAL)
+    main_text.configure(text="Now choose your eyeliner style...")
+
+    palette_result.configure(text=f"{NAMES[0]}, {NAMES[1]}, & {NAMES[2]}")
+    palette_image_label_1.configure(image=colour_galaxy_image)
+    palette_image_label_2.configure(image=neon_image)
+    palette_image_label_3.configure(image=pastel_image)
+    galaxy_shade = "".join(random.choice(COLOUR_GALAXY))
+    neon_shade = "".join(random.choice(NEONS))
+    pastel_shade = "".join(random.choice(PASTELS))
+    colors_result.configure(text=f"{galaxy_shade}, {neon_shade}, {pastel_shade}")
 
 # Chooses style
 def style():
-    reset_button["state"] = "normal"
-    style_button["state"] = "disabled"
-    main_text["text"] = "Here's your graphic liner look!!"
+    style_button.configure(state=tkinter.DISABLED)
+    reset_button.configure(state=tkinter.NORMAL)
+    main_text.configure(text="Here's your graphic liner look!!")
 
-    styles = ["Floating Crease Liner", "Double Liner", "Dotted Liner", "Flames", "Winged", "Freestyle"]
-    s = random.choice(styles)
-    style_result["text"] = "".join(s)
+    style = random.choice(STYLES)
+    style_result.configure(text="".join(style))
 
 # Resets program
 def reset():
-    main_text["text"] = "How many palettes do you want to use?"
-    reset_button["state"] = "disabled"
-    style_button["state"] = one_palette_button["state"] = two_palettes_button["state"] = three_palettes_button["state"] = "normal"
-    colors_result["text"] = palette_result["text"] = style_result["text"] = palette_pic["image"] = palette_pic_2["image"] = palette_pic_3["image"] = ""
+
+    # Enables all palette buttons, disables reset button
+    one_palette_button.configure(state=tkinter.NORMAL)
+    two_palettes_button.configure(state=tkinter.NORMAL)
+    three_palettes_button.configure(state=tkinter.NORMAL)
+    style_button.configure(state=tkinter.NORMAL)
+    reset_button.configure(state=tkinter.DISABLED)
+
+    # Restores main text, clears images and labels
+    main_text.configure(text="How many palettes do you want to use?")
+    palette_result.configure(text="")
+    colors_result.configure(text="")
+    style_result.configure(text="")
+    palette_image_label_1.configure(image="")
+    palette_image_label_2.configure(image="")
+    palette_image_label_3.configure(image="")
 
 # Buttons & Text
-main_text = tkinter.Label(window, text="How many palettes do you want to use? Choose a number between 1 and 3.")
+main_text = tkinter.Label(window, text="How many palettes do you want to use?")
 main_text.pack()
 
 one_palette_button = tkinter.Button(window, text="One Palette", command=one_palette, state="normal")
@@ -96,14 +120,14 @@ two_palettes_button.pack()
 three_palettes_button = tkinter.Button(window, text="Three Palettes", command=three_palettes, state="normal")
 three_palettes_button.pack()
 
-palette_pic = tkinter.Label(window, image="")
-palette_pic.pack()
+palette_image_label_1 = tkinter.Label(window, image="")
+palette_image_label_1.pack()
 
-palette_pic_2 = tkinter.Label(window, image="")
-palette_pic_2.pack()
+palette_image_label_2 = tkinter.Label(window, image="")
+palette_image_label_2.pack()
 
-palette_pic_3 = tkinter.Label(window, image="")
-palette_pic_3.pack()
+palette_image_label_3 = tkinter.Label(window, image="")
+palette_image_label_3.pack()
 
 palette_result = tkinter.Label(window, text="")
 palette_result.pack()
